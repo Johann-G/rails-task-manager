@@ -1,0 +1,8 @@
+<ul>
+  <% @tasks.each do |task| %>
+    <% task.completed ? x_check = "[X]" : x_check = "[ ]" %>
+    <li><h1><%= x_check %> <%= link_to task.title, task_path(task.id) %></h1><%= link_to "Delete task", task_path(task.id), method: :delete, data: { confirm: "Are you sure?" } %></li>    
+  <% end %>
+</ul>
+<br>
+<h2><%= link_to "Add a new task", new_task_path %></h2>
